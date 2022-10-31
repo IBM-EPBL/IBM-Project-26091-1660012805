@@ -35,9 +35,9 @@ businesses.</li>
 |:-----------:|:-----------------:|
 | Team Leader   |    **Annamalai M**   |
 | Team Member 1 |   **Karthikeyan P**  |
-| Team Member 2 |  **Aathithya kumar **  |
+| Team Member 2 |  **Aathithya kumar**  |
 | Team Member 3 | **Mohith P** |
-| Team Member 4 | **Roopak ** |
+| Team Member 4 | **Roopak** |
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
