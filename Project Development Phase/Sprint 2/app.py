@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect, session
 import sqlite3 as sql
 import re
 import ibm_db
-conn =ibm_db.connect("DATABASE=bludb;HOSTNAME=21fecfd8-47b7-4937-840d-d791d0218660.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=31864;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=jpy41264;PWD=dcC5L2PYRESPxhxh",'','')
+conn =ibm_db.connect("DATABASE=bludb;HOSTNAME=21fecfd8-47b7-4937-40d-d791d0218660.bs2io9l08kqb1od8lcg.databases.appdomain.cloud;PORT=31864;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=jpy41264;PWD=dcC5L2PYRESPxhxh",'','')
 
 app=Flask(__name__)
 app.secret_key ='shreesathyam'
@@ -27,7 +27,7 @@ def lowStock():
 @app.route('/user/<id>')
 def user_info(id):
     with sql.connect('inventorymanagement.db') as con:
-        con.row_factory=sql.Row
+        con.row_factory=sql.row
         cur =con.cursor()
         cur.execute(f'SELECT * FROM register WHERE email="{id}"')
         user = cur.fetchall()
@@ -45,11 +45,11 @@ def index():
             pd = request.form['password_1']
             msg+=un 
             msg+=pd
-            sql = "SELECT * FROM register WHERE username =? AND password_1=?"
+            sql = "SELECT * FROM register WHERE username =? AND password=?"
             stmt = ibm_db.prepare(conn, sql)
-            ibm_db.bind_param(stmt,1,un)
+            ibm_db.bind_para(stmt,1,un)
             msg+='hello'
-            ibm_db.bind_param(stmt,2,pd)
+            ibm_db.bind_para(stmt,2,pd)
             ibm_db.execute(stmt)
             account = ibm_db.fetch_assoc(stmt)
             print (account)
