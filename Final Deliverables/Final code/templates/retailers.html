@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retailers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white">
+    <a class="navbar-brand" href="/index"><b>Inventory Management System</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/index">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user"></i> User
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br><br>
+  <div>
+    <h1 class="h1 font-weight-bold" style="display: inline;margin-left:5vw">Retailers</h1>
+    <button style="float: right;margin-right: 5vw; display: inline;" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addRetailers"> Add Retailers </button>
+  </div>
+
+  <table class="table table-hover" style="width: 90vw;margin-left:5vw;margin-top:5vh;text-align:center">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody> 
+    {% for i in info %}
+      <tr>
+        <th scope="row">{{i[0]}}</th>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+      </tr>
+    {%endfor%}
+
+
+
+      <!--<tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry the Bird</td>
+        <td>twitter</td>
+        <td>sdv</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>fat</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>Larry the Bird</td>
+        <td>twitter</td>
+        <td>sdv</td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>fat</td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>Larry the Bird</td>
+        <td>twitter</td>
+        <td>sdv</td>
+      </tr>-->
+    </tbody>
+  </table>
+
+
+  <div class="modal fade" id="editProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="padding: 30px 50px 30px 50px;">
+        
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Add Stock</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Under Stock Limit</label>
+          </div>
+          <br>
+        </div>
+        <div class=" modal-footer justify-content-center" style="border-top: none !important ;">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="addRetailers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="padding: 30px 50px 30px 50px;">
+       <form action="/accessbackend" method="POST"> 
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" placeholder="name@example.com" name="firstname">
+            <label for="name">First Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" placeholder="name@example.com" name="lastname">
+            <label for="name">Last Name</label>
+          
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="stock" placeholder="name@example.com" name="email">
+            <label for="stock">Email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="stock" placeholder="name@example.com" name="pno">
+            <label for="stock">Phone number</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="underStock" placeholder="Password" name="password">
+            <label for="underStock">Password</label>
+          </div>
+          <br>
+        </div>
+        <div class=" modal-footer justify-content-center" style="border-top: none !important ;">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-outline-primary">Add</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
